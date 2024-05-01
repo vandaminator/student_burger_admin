@@ -24,7 +24,7 @@
   <svelte:fragment slot="lead">
     <a
       class="text-2xl font-bold text-primary-400-500-token max-sm:hidden"
-      href="/dashboard">RomanScoops Admin</a
+      href="/dashboard">Student burger Admin</a
     >
     <button
       type="button"

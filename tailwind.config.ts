@@ -22,7 +22,7 @@ const config = {
 
   plugins: [
     skeleton({
-      themes: { preset: ["skeleton", "wintry"] },
+      themes: { preset: ["vintage"] },
     }),
     forms,
   ],
