@@ -2,8 +2,7 @@
   import { AppBar, LightSwitch, getDrawerStore } from "@skeletonlabs/skeleton";
   import type { DrawerSettings } from "@skeletonlabs/skeleton";
   import Icon from "@iconify/svelte";
-
-  export let path: string;
+  import { page } from "$app/stores";
 
   const drawerStore = getDrawerStore();
 
@@ -28,7 +27,7 @@
     >
     <button
       type="button"
-      class="btn-icon variant-filled-surface sm:hidden"
+      class={`btn-icon variant-filled-surface sm:hidden ${$page.url.pathname === "/" ? "hidden" : ""}`}
       on:click={handleOpen}
     >
       <Icon icon="mingcute:menu-fill" />
@@ -36,8 +35,8 @@
   </svelte:fragment>
 
   <!-- middle -->
-  <a class="text-xl font-bold text-secondary-400-500-token sm:hidden" href="/"
-    >Roman Admin</a
+  <a class="text-xl font-bold text-primary-400-500-token sm:hidden" href="/dashboard"
+    >Student burger Admin</a
   >
 
   <svelte:fragment slot="trail">

@@ -12,7 +12,6 @@
   import { page } from "$app/stores";
   import { redirect } from "@sveltejs/kit";
   import type { LayoutData } from "./$types";
-  import { goto } from "$app/navigation";
 
   initializeStores();
   const drawerStore = getDrawerStore();
@@ -29,7 +28,7 @@
 
 <AppShell>
   <svelte:fragment slot="header">
-    <Navbar path={$page.url.pathname}/>
+    <Navbar/>
   </svelte:fragment>
   <!-- (sidebarLeft) -->
   <!-- (sidebarRight) -->
@@ -49,6 +48,11 @@
   {#if $drawerStore.id === "nav"}
     <div class="p-4">
       <LightSwitch />
+      <div class="grid grid-cols-1 gap-4 mt-3">
+        <a href="/dashboard/order" class="btn bg-gradient-to-br variant-gradient-primary-tertiary btn-xl" on:click={() => drawerStore.close()}>Orders</a>
+        <a href="/dashboard/product" class="btn bg-gradient-to-br variant-gradient-primary-tertiary btn-xl" on:click={() => drawerStore.close()}>Product</a>
+        <a href="/dashboard/user" class="btn bg-gradient-to-br variant-gradient-primary-tertiary btn-xl" on:click={() => drawerStore.close()}>User</a>
+      </div>
     </div>
   {:else if $drawerStore.id === "example-2"}
     <div></div>
